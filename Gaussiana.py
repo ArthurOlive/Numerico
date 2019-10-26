@@ -26,37 +26,37 @@ def op2(mat, resp):
         if (mat[i][i] != 0 ):
             j = 0
             while(j < len(mat)):
-                if (j < i):
-                    z = len(mat) -1
+                if (j > i):
+                    z = 0
                     if (mat[j][i] != 0 and mat[j][i] > 0):
                         k = (mat[j][i] / mat[i][i])
                         resp[j][0] =  round(-1 * k * resp[i][0] + resp[j][0], 2)
-                        while (z > 0):
+                        while (z < len(mat)):
                             mat[j][z] = round(-1 * k * mat[i][z] + mat[j][z], 2) #zera o valor 
-                            z -= 1
+                            z += 1
                     elif(mat[j][i] != 0):
                         k = -1 * (mat[j][i] / mat[i][i])
                         resp[j][0] =  round(k * resp[i][0] + resp[j][0], 2)
-                        while (z > 0):
+                        while (z < len(mat)):
                             mat[j][z] =  round(k * mat[i][z] + mat[j][z], 2) #zera o valor 
-                            z -= 1
+                            z += 1
                 j += 1
             i += 1
         elif(epoca < len(mat) * 2):
             j = 0
             while(j < len(mat)):
-                if (j < i):
-                    z = len(mat) -1
+                if (j > i):
+                    z = 0
                     if (mat[j][i] != 0 and mat[j][i] > 0):
                         resp[j][0] =  round(-1 * resp[i][0] + resp[j][0],2)
-                        while (z > 0):
+                        while (z < len(mat)):
                             mat[j][z] =  round(-1 * mat[i][z] + mat[j][z],2) #zera o valor 
-                            z -= 1
+                            z += 1
                     elif(mat[j][i] != 0):
                         resp[j][0] =  round(1 * k * resp[i][0] + resp[j][0], 2)
-                        while (z > 0):
+                        while (z < len(mat)):
                             mat[j][z] =  round(1 * mat[i][z] + mat[j][z],2) #zera o valor 
-                            z -= 1
+                            z += 1
                 j += 1
             epoca += 1
         else: 
