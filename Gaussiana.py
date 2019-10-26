@@ -1,6 +1,5 @@
 def op1(mat, resp):
     i = 0
-    j = 0
     while (i < len(mat)):
         if (mat[i][i] == 0):
             k = 0 
