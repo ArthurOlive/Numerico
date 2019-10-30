@@ -55,28 +55,18 @@ double determinant(double ** matrix, int m) {
 	int i, j, count, i_count, j_count, det = 0;
 	double r;
 	
-	if (m == 1) {
-		return matrix[0][0];
-	}
-	
-	if (m == 2) {
-		return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
-	}
-	
-	return det;
+	return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
 }
 
 double maxEigenValue(double ** matrix, int m) {
-	if (m == 2) {
-		double tr = trace(matrix, 2) * -1;
-		double det = determinant(matrix, m);
-		
-		double delta = pow(tr, 2) - 4 * det;
-		double x1 = ( (tr * -1) + sqrt(delta) ) / 2;
-		double x2 = ( (tr * -1) - sqrt(delta) ) / 2;
-		
-		return x1 > x2 ? x1 : x2;
-	}
+	double tr = trace(matrix, 2) * -1;
+	double det = determinant(matrix, m);
+	
+	double delta = pow(tr, 2) - 4 * det;
+	double x1 = ( (tr * -1) + sqrt(delta) ) / 2;
+	double x2 = ( (tr * -1) - sqrt(delta) ) / 2;
+	
+	return x1 > x2 ? x1 : x2;	
 }
 
 int main() {
